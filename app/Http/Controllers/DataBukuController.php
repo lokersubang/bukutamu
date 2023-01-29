@@ -6,6 +6,7 @@ use App\Http\Requests\BookRequest;
 use App\Models\Book;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class DataBukuController extends Controller
 {
@@ -18,7 +19,7 @@ class DataBukuController extends Controller
                 ->orWhere('alamat', 'like', '%' . request('cari') . '%')
                 ->orWhere('tujuan', 'like', '%' . request('cari') . '%');
         }
-        // dd($book->paginate(4)->withQueryString());
+
         return view('admin.index', ['books' => $book->paginate(4)->withQueryString()]);
     }
 
@@ -41,7 +42,12 @@ class DataBukuController extends Controller
 
     public function destroy($id)
     {
-        Book::find($id)->delete();
+        // Book::find($id)->delete();
+        $data = Book::findOrFail($id);
+
+        if (Storage::delete('/image/' . $data->foto)) {
+            $data->delete();
+        }
         return back()->with('flash', 'Hapus');
     }
 }

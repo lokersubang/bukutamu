@@ -50,7 +50,8 @@
                                         <td>{{ $book->alamat }}</td>
                                         <td>{{ $book->tujuan }}</td>
                                         <td>{{ $book->created_at->toDateTimeString() }} WIB</td>
-                                        <td>{{ $book->gambar }}</td>
+                                        <td><img src="/storage/image/{{ $book->foto }}" alt="{{ $book->nama }}"
+                                                class="img-fluid" width="80"></td>
                                         <td>
                                             <div class="btn-group">
                                                 <button type="button" class="btn btn-sm btn-danger dropdown-toggle"

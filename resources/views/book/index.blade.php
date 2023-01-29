@@ -26,14 +26,14 @@
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama </label>
                             <input type="text" class="form-control @error('nama') is-invalid @enderror"
-                                id="nama" name="nama" value="{{ old('nama') ?? 'OK' }}">
+                                id="nama" name="nama" value="{{ old('nama') }}">
                             @error('nama')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="mb-3">
                             <label for="alamat" class="form-label">Alamat</label>
-                            <textarea class="form-control @error('alamat') is-invalid @enderror" style="resize: none" id="alamat" name="alamat">{{ old('alamat') ?? 'OKE' }}</textarea>
+                            <textarea class="form-control @error('alamat') is-invalid @enderror" style="resize: none" id="alamat" name="alamat">{{ old('alamat') }}</textarea>
                             @error('alamat')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -42,7 +42,7 @@
                         <div class="mb-3">
                             <label for="maksud" class="form-label">Maksud dan Tujuan </label>
                             <textarea class="form-control @error('tujuan') is-invalid @enderror" rows="5" style="resize: none" id="maksud"
-                                name="tujuan">{{ old('tujuan') ?? 'OK' }}</textarea>
+                                name="tujuan">{{ old('tujuan') }}</textarea>
                             @error('tujuan')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -78,7 +78,6 @@
 <script type="text/javascript">
     // jalankan aksi saat tombol register disubmit
     $("#simpan").click(function() {
-        console.log('ok')
         event.preventDefault();
         //memasukkan data gambar ke dalam variabel image
         Webcam.snap(function(data_uri) {

@@ -34,8 +34,8 @@ class BookController extends Controller
 
 
         // Storage::put($file, $data);
-        if (!Storage::put($file, $data)) {
-            dd('gagal');
+        if (!Storage::put('/image/' . $file, $data)) {
+            return back()->with('flash', 'Input Data Gagal !');
         }
         Book::create([
             'nama' => $request->nama,
