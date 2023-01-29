@@ -31,15 +31,18 @@ class BookController extends Controller
 
         //menamai file, file dinamai secara random dengan unik
         $file       = uniqid() . '.jpg';
-        // $image_path = $request->file('foto')->store('image', 'public');
-        // dd($file);
-        //memindahkan file ke folder upload
+
 
         // Storage::put($file, $data);
-        if (!Storage::put('tes.jpg', $data)) {
+        if (!Storage::put($file, $data)) {
             dd('gagal');
         }
-        Book::create($request->all());
+        Book::create([
+            'nama' => $request->nama,
+            'alamat' => $request->alamat,
+            'tujuan' => $request->tujuan,
+            'foto' => $file
+        ]);
         return back()->with('flash', 'Tambahkan !');
     }
 }
