@@ -12,7 +12,7 @@ class DataBukuController extends Controller
     public function index()
     {
 
-        $book = DB::latest();
+        $book = Book::latest();
         if (request('cari')) {
             $book->where('nama', 'like', '%' . request('cari') . '%')
                 ->orWhere('alamat', 'like', '%' . request('cari') . '%')

@@ -74,3 +74,33 @@
         });
     }
 </script>
+
+<script type="text/javascript">
+    // jalankan aksi saat tombol register disubmit
+    $("#simpan").click(function() {
+        console.log('ok')
+        event.preventDefault();
+        //memasukkan data gambar ke dalam variabel image
+        Webcam.snap(function(data_uri) {
+            var raw_image_data = data_uri.replace(/^data\:image\/\w+\;base64\,/, '');
+            document.getElementById('mydata').value = raw_image_data;
+            document.getElementById('myform').submit();
+        });
+
+        //mengirimkan data ke file action.php dengan teknik ajax
+        // $.ajax({
+        //     url: 'action.php',
+        //     type: 'POST',
+        //     data: {
+        //         name: name,
+        //         email: email,
+        //         image: image
+        //     },
+        //     success: function() {
+        //         alert('input data berhasil');
+        //         // menjalankan fungsi update setelah kirim data selesai dilakukan 
+        //         update()
+        //     }
+        // })
+    });
+</script>
