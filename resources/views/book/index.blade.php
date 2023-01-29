@@ -18,7 +18,6 @@
                         @csrf
                         <div class="mb-3">
                             <div id="myCamera" class="img-fluid mx-auto"></div>
-                            <br />
                             <input type=button class="btn btn-dark btn-block" value="Ambil Foto"
                                 onClick="take_snapshot()">
                             <input id="mydata" type="hidden" name="mydata" value="" />
@@ -73,7 +72,7 @@
 
 <script language="JavaScript">
     Webcam.set({
-        width: 320,
+        width: 250,
         height: 240,
         image_format: 'jpeg',
         jpeg_quality: 90
