@@ -37,10 +37,23 @@
                             @error('alamat')
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
-
                         </div>
+                        {{-- <div class="mb-3">
+                            <label for="tujuan" class="form-label">Tujuan Kepada</label>
+                            <select name="tujuan" id="tujuan" class="form-control">
+                                <option value="">Kepala Kantor</option>
+                                <option value="">TU</option>
+                                <option value="">Pengukuran</option>
+                                <option value="">Pengadaan</option>
+                                <option value="">Arsip</option>
+                                <option value="">PPSKP</option>
+                            </select>
+                            @error('tujuan')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div> --}}
                         <div class="mb-3">
-                            <label for="maksud" class="form-label">Maksud dan Tujuan </label>
+                            <label for="maksud" class="form-label">Keperluan </label>
                             <textarea class="form-control @error('tujuan') is-invalid @enderror" rows="5" style="resize: none" id="maksud"
                                 name="tujuan">{{ old('tujuan') }}</textarea>
                             @error('tujuan')
@@ -72,6 +85,8 @@
             $(".mydata").val(data_uri);
             document.getElementById('myCamera').innerHTML = '<img src="' + data_uri + '"/>';
         });
+
+
     }
 </script>
 
