@@ -21,7 +21,7 @@
                             <br />
                             <input type=button class="btn btn-dark btn-block" value="Ambil Foto"
                                 onClick="take_snapshot()">
-                            <input id="mydata" type="hidden" name="foto" value="" />
+                            <input id="mydata" type="hidden" name="mydata" value="" />
                         </div>
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama </label>
@@ -47,7 +47,7 @@
                                 <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
-                        <button type="submit" class="btn btn-primary">Simpan</button>
+                        <button type="submit" class="btn btn-primary" id="simpan">Simpan</button>
                     </form>
                 </div>
             </div>
@@ -87,20 +87,6 @@
             document.getElementById('myform').submit();
         });
 
-        //mengirimkan data ke file action.php dengan teknik ajax
-        // $.ajax({
-        //     url: 'action.php',
-        //     type: 'POST',
-        //     data: {
-        //         name: name,
-        //         email: email,
-        //         image: image
-        //     },
-        //     success: function() {
-        //         alert('input data berhasil');
-        //         // menjalankan fungsi update setelah kirim data selesai dilakukan 
-        //         update()
-        //     }
-        // })
+
     });
 </script>

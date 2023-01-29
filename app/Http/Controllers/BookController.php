@@ -16,13 +16,13 @@ class BookController extends Controller
     }
 
 
-    public function store(BookRequest $request)
+    public function store(Request $request)
     {
         //mendefinisikan folder
-        define('UPLOAD_DIR', '/public/image/');
+        // define('UPLOAD_DIR', '/public/image/');
 
         //menangkap variabel
-        $img        = $request->foto;
+        $img        = $request->mydata;
         $img        = str_replace('data:image/jpeg;base64,', '', $img);
         $img        = str_replace(' ', '+', $img);
 
