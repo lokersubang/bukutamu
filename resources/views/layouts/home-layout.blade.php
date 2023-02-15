@@ -20,6 +20,7 @@
     <!-- Custom styles for this template-->
     <link href="/template/css/sb-admin-2.min.css" rel="stylesheet">
     <script type="text/javascript" src="/js/webcam.min.js"></script>
+    <link rel="icon" href="/img/logo.png" inertia>
 
 
 </head>
