@@ -1,4 +1,5 @@
 <x-home-layout title="Data Buku Tamu">
+    <meta http-equiv="refresh" content="120" />
     <div class="container">
         <div class="row mb-5">
             <div class="col-md-12">

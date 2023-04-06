@@ -12,7 +12,7 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    @auth
+    @if (Auth::user()->role == 'admin')
         <li class="nav-item">
             <a class="nav-link" href="{{ route('dashboard') }}">
                 <i class="fas fa-fw fa-home"></i>
@@ -20,11 +20,16 @@
         </li>
     @else
         <li class="nav-item">
+            <a class="nav-link" href="{{ route('dashboard') }}">
+                <i class="fas fa-fw fa-home"></i>
+                <span>Dashboard</span></a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="{{ route('home') }}">
                 <i class="fas fa-fw fa-book"></i>
                 <span>Buku Tamu</span></a>
         </li>
-    @endauth
+    @endif
 
 
 
@@ -32,7 +37,7 @@
     <hr class="sidebar-divider">
 
     <!-- Heading -->
-    @auth
+    @if (Auth::user()->role == 'admin')
         <div class="sidebar-heading">
             Menu
         </div>
@@ -42,10 +47,18 @@
                 <i class="fas fa-fw fa-address-book"></i>
                 <span>Data Buku Tamu</span></a>
         </li>
+        <div class="sidebar-heading">
+            Informasi
+        </div>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('profile.edit') }}">
-                <i class="fas fa-fw  fa-user"></i>
-                <span>Profile</span></a>
+            <a class="nav-link" href="{{ route('about') }}">
+                <i class="fas fa-fw fa-info"></i>
+                <span>About</span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('contact') }}">
+                <i class="fas fa-fw fa-phone"></i>
+                <span>Contact</span></a>
         </li>
     @else
         <div class="sidebar-heading">
@@ -61,7 +74,7 @@
                 <i class="fas fa-fw fa-phone"></i>
                 <span>Contact</span></a>
         </li>
-    @endauth
+    @endif
 
 
 
