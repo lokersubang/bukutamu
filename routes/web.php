@@ -6,8 +6,8 @@ use Illuminate\Support\Facades\Route;
 
 // Home
 
-Route::get('/bukutamu', [BookController::class, 'index'])->name('home')->middleware('auth', 'user');
-Route::post('/bukutamu', [BookController::class, 'store'])->name('home.store')->middleware('auth', 'user');
+Route::get('/bukutamu', [BookController::class, 'index'])->name('home')->middleware('auth');
+Route::post('/bukutamu', [BookController::class, 'store'])->name('home.store')->middleware('auth');
 
 
 // Informasi
