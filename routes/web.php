@@ -19,6 +19,8 @@ Route::view('/', 'dashboard')->name('dashboard')->middleware('auth');
 Route::get('buku', [DataBukuController::class, 'index'])->name('buku.index')->middleware('auth', 'admin');
 Route::post('buku', [DataBukuController::class, 'index'])->name('buku.index')->middleware('auth', 'admin');
 Route::get('buku/{id}/edit', [DataBukuController::class, 'edit'])->name('buku.edit')->middleware('auth', 'admin');
+Route::put('buku/{id}/diterima', [DataBukuController::class, 'diterima'])->name('buku.diterima')->middleware('auth', 'admin');
+Route::put('buku{id}/ditolak', [DataBukuController::class, 'ditolak'])->name('buku.ditolak')->middleware('auth', 'admin');
 Route::put('buku/{id}', [DataBukuController::class, 'update'])->name('buku.update')->middleware('auth', 'admin');
 Route::delete('buku/{id}', [DataBukuController::class, 'destroy'])->name('buku.destroy')->middleware('auth', 'admin');
 

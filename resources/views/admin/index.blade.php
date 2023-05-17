@@ -37,6 +37,7 @@
                                     <th>Alamat</th>
                                     <th>Keperluan</th>
                                     <th>Tanggal</th>
+                                    <th>Status</th>
                                     <th>Foto</th>
                                     <th>Setting</th>
                                 </tr>
@@ -51,6 +52,10 @@
                                         <td>{{ $book->alamat }}</td>
                                         <td>{{ $book->tujuan }}</td>
                                         <td>{{ $book->created_at->toDateTimeString() }} WIB</td>
+                                        <td>
+                                            <span
+                                                class="badge {{ $book->status == 'Diterima' ? 'bg-success' : ($book->status == 'Ditolak' ? 'bg-danger' : 'bg-dark') }} text-white">{{ $book->status ?? 'Belum Dikonfirmasi' }}</span>
+                                        </td>
                                         <td><a href="/storage/image/{{ $book->foto }}"><img
                                                     src="/storage/image/{{ $book->foto }}" alt="{{ $book->nama }}"
                                                     class="img-fluid" width="80"></a></td>
@@ -60,7 +65,24 @@
                                                     data-toggle="dropdown" aria-expanded="false">
                                                     Opsi
                                                 </button>
-                                                <div class="dropdown-menu">
+                                                <div class="dropdown-menu dropdown-menu-end">
+                                                    <form method="post"
+                                                        action="{{ route('buku.diterima', $book->id) }}">
+                                                        @csrf
+                                                        @method('put')
+                                                        <input type="hidden" name="status">
+                                                        <button class="dropdown-item" type="submit"
+                                                            onclick="return confirm('Yakin mau diterima?')">Diterima</button>
+                                                    </form>
+                                                    <form method="post"
+                                                        action="{{ route('buku.ditolak', $book->id) }}">
+                                                        @csrf
+                                                        @method('put')
+                                                        <input type="hidden" name="status">
+                                                        <button class="dropdown-item" type="submit"
+                                                            onclick="return confirm('Yakin mau ditolak?')">Ditolak</button>
+                                                    </form>
+
                                                     <a class="dropdown-item"
                                                         href="{{ route('buku.edit', $book->id) }}">Edit</a>
                                                     <form method="post"

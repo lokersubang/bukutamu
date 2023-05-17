@@ -29,6 +29,22 @@ class DataBukuController extends Controller
         return view('admin.edit', ['buku' => Book::where('id', $id)->first()]);
     }
 
+    public function diterima(Request $request, $id)
+    {
+        Book::where('id', $id)->update([
+            'status' => 'Diterima'
+        ]);
+        return back()->with('flash', 'Diterima');
+    }
+
+    public function ditolak(Request $request, $id)
+    {
+        Book::where('id', $id)->update([
+            'status' => 'Ditolak'
+        ]);
+        return back()->with('flash', 'Ditolak');
+    }
+
     public function update(Request $request, $id)
     {
 

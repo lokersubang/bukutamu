@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('alamat');
             $table->longText('tujuan');
             $table->string('foto')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }
